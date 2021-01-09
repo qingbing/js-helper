@@ -81,3 +81,14 @@ console.log("arr1", arr1);
 console.log("arr4", arr4);
 ```
 
+### 2.5 format 测试
+```js
+import { sprintf, replace } from "@qingbing/helper";
+
+console.log(sprintf("我是 %s, 今年 %d 岁，基础信息: %j", "张三", 5, { "age": 44, "high": 1.12 }));
+console.log(replace("我是 {name}, 今年 {age} 岁，基础信息: {info}", {
+  name : "张三",
+  age : 12,
+  info : { "age": 44, "high": 1.1222 }
+}));
+```
