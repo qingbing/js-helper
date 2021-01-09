@@ -1,16 +1,21 @@
 {
-  "name": "@qingbing/pack-demo",
-  "version": "1.0.0",
-  "description": "webpack 模版",
-  "main": "index.js",
+  "name": "@qingbing/helper",
+  "version": "1.0.2",
+  "description": "常规功能及函数",
+  "main": "src/index.js",
   "scripts": {
     "pack-version": "webpack -v",
-    "start": "node ./src/main.js",
+    "publish": "npm publish --access public",
+    "start": "node ./src/index.js",
     "build": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --open"
   },
-  "keywords": ["webpack", "模版"],
+  "keywords": [
+    "qingbing",
+    "helper",
+    "unit"
+  ],
   "author": "https://github.com/qingbing",
   "license": "ISC",
   "devDependencies": {

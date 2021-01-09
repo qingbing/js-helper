@@ -1,0 +1,42 @@
+// 通用函数
+import {
+  isDev,
+  isUndefined,
+  isString,
+  isBoolean,
+  isNumber,
+  isArray,
+  isObject
+} from "./lib/unit";
+// 数组相关函数
+import {
+  inArray,
+  explode,
+  implode
+} from "./lib/array";
+// 集合相关函数
+import {
+  copy,
+  merge
+} from "./lib/collection";
+
+/**
+ * 导出相应函数
+ */
+export {
+  // unit
+  isDev,
+  isUndefined,
+  isString,
+  isBoolean,
+  isNumber,
+  isArray,
+  isObject,
+  // array
+  inArray,
+  explode,
+  implode,
+  // collection
+  copy,
+  merge
+};
