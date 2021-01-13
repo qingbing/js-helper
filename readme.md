@@ -34,12 +34,38 @@ import {
   // array 
   inArray,
   explode,
-  implode
+  implode,
+  array_cloumn
 } from "@qingbing/helper";
 // array
 console.log('inArray', inArray(4, [1, 2, 4, 5]));
 console.log('explode', explode("i am qq", " "));
 console.log('implode', implode(["i", "am qq"], "___"));
+
+
+const items = [
+  {
+    field: "name",
+    default: "q",
+    label: "姓名",
+  },
+  {
+    field: "sex",
+    default: "qsss",
+    label: "性别",
+    age: 222,
+  },
+];
+console.log(items);
+console.log("===============");
+let data;
+data = array_cloumn(items, "field");
+console.log(data);
+data = array_cloumn(items, "default", "field");
+console.log(data);
+data = array_cloumn(items, "age", "field");
+console.log(data);
+console.log("===============");
 ```
 ### 2.3 collection 测试
 ```js

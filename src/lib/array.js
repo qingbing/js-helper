@@ -40,3 +40,43 @@ export function implode(arr, glue) {
   }
   return arr.join(glue);
 }
+/**
+ * 获取二维对象数组中的值，成为一个新的一位数组或对象
+ * 
+ * @param {Array} items 二位数组（对象）
+ * @param {String} fieldKey 挑选字段
+ * @param {String} indexKey 挑选字段
+ * @param {String} defaultVal 默认值
+ */
+export function array_cloumn(items, fieldKey, indexKey, defaultVal) {
+  // 检查过滤字段是否定义
+  if (isUndefined(fieldKey)) {
+    throw new Error("array_cloumn 必须指定过滤的字段名");
+  }
+  // 确保默认值
+  if (isUndefined(defaultVal)) {
+    defaultVal = "";
+  }
+  let R = {};
+  for (const key in items) {
+    const item = items[key];
+    // 计算返回的 key
+    let rKey;
+    if (isUndefined(indexKey)) {
+      rKey = key;
+    } else if (isUndefined(item[indexKey])) {
+      throw new Error("array_cloumn 指定的索引字段不存在");
+    } else {
+      rKey = item[indexKey];
+    }
+    // 计算返回的值
+    let rVal;
+    if (isUndefined(item[fieldKey])) {
+      rVal = defaultVal
+    } else {
+      rVal = item[fieldKey];
+    }
+    R[rKey] = rVal;
+  }
+  return R;
+}
