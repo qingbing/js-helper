@@ -38,43 +38,20 @@ import {
   inArray,
   explode,
   implode,
-  array_cloumn
 } from "@qingbing/helper";
 // array
 console.log('inArray', inArray(4, [1, 2, 4, 5]));
 console.log('explode', explode("i am qq", " "));
 console.log('implode', implode(["i", "am qq"], "___"));
 
-
-const items = [
-  {
-    field: "name",
-    default: "q",
-    label: "姓名",
-  },
-  {
-    field: "sex",
-    default: "qsss",
-    label: "性别",
-    age: 222,
-  },
-];
-console.log(items);
-console.log("===============");
-let data;
-data = array_cloumn(items, "field");
-console.log(data);
-data = array_cloumn(items, "default", "field");
-console.log(data);
-data = array_cloumn(items, "age", "field");
-console.log(data);
-console.log("===============");
 ```
 ### 2.3 collection 测试
 ```js
 import {
   copy,
-  merge
+  merge,
+  col_cloumn,
+  col_value,
 } from "@qingbing/helper";
 // collection
 const arr1 = {
@@ -108,6 +85,38 @@ arr1.user[0].name = "change11";
 // 修改不影响原数据
 console.log("arr1", arr1);
 console.log("arr4", arr4);
+
+// col_cloumn 测试
+const items = [
+  {
+    field: "name",
+    default: "q",
+    label: "姓名",
+  },
+  {
+    field: "sex",
+    default: "qsss",
+    label: "性别",
+    age: 222,
+  },
+];
+console.log(items);
+console.log("===============");
+let data;
+data = col_cloumn(items, "field");
+console.log(data);
+data = col_cloumn(items, "default", "field");
+console.log(data);
+data = col_cloumn(items, "age", "field");
+console.log(data);
+console.log("===============");
+
+
+// col_value 测试
+console.log(col_value(1, ["app", "ba", "xx"]));
+console.log(col_value(4, ["app", "ba", "xx"], "-"));
+console.log(col_value("c", { a: "app", b: "ba", c: "xx" }));
+console.log(col_value("d", { a: "app", b: "ba", c: "xx" }, "--"));
 ```
 
 ### 2.5 format 测试
