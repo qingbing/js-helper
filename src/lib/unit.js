@@ -65,3 +65,16 @@ export function isArray(v) {
 export function isObject(v) {
   return Object.prototype.toString.call(v) === "[object Object]";
 }
+
+/**
+ * 生成唯一的UUID
+ */
+export function uniqid() {
+  var d = new Date().getTime();
+  var id = 'xxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+  return id;
+}

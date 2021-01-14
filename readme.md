@@ -16,7 +16,8 @@ import {
   isBoolean,
   isNumber,
   isArray,
-  isObject
+  isObject,
+  uniqid
 } from "@qingbing/helper";
 
 // unit
@@ -27,6 +28,8 @@ console.log('isBoolean', isBoolean(true));
 console.log('isNumber', isNumber('12.2'));
 console.log('isArray', isArray([]));
 console.log('isObject', isObject({}));
+
+console.log('uniqid', uniqid());
 ```
 ### 2.2 array 测试
 ```js
