@@ -59,18 +59,26 @@ export function replace(msg, kvs) {
   if (typeof kvs !== "object") {
     return msg;
   }
+  for (const key in object) {
+    if (Object.hasOwnProperty.call(object, key)) {
+      const element = object[key];
+
+    }
+  }
   for (var key in kvs) {
-    let repS;
-    const sKey = "{" + key + "}";
-    if (-1 === msg.indexOf(sKey)) {
-      continue;
+    if (Object.hasOwnProperty.call(kvs, key)) {
+      let repS;
+      const sKey = "{" + key + "}";
+      if (-1 === msg.indexOf(sKey)) {
+        continue;
+      }
+      if (typeof kvs[key] === "object") {
+        repS = JSON.stringify(kvs[key]);
+      } else {
+        repS = kvs[key];
+      }
+      msg = msg.replace(new RegExp(sKey, "g"), repS);
     }
-    if (typeof kvs[key] === "object") {
-      repS = JSON.stringify(kvs[key]);
-    } else {
-      repS = kvs[key];
-    }
-    msg = msg.replace(new RegExp(sKey, "g"), repS);
   }
   return msg;
 }

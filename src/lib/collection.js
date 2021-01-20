@@ -105,25 +105,28 @@ export function col_cloumn(items, fieldKey, indexKey, defaultVal) {
     defaultVal = "";
   }
   let R = {};
+
   for (const key in items) {
-    const item = items[key];
-    // 计算返回的 key
-    let rKey;
-    if (isUndefined(indexKey)) {
-      rKey = key;
-    } else if (isUndefined(item[indexKey])) {
-      throw new Error("col_cloumn 指定的索引字段不存在");
-    } else {
-      rKey = item[indexKey];
+    if (Object.hasOwnProperty.call(items, key)) {
+      const item = items[key];
+      // 计算返回的 key
+      let rKey;
+      if (isUndefined(indexKey)) {
+        rKey = key;
+      } else if (isUndefined(item[indexKey])) {
+        throw new Error("col_cloumn 指定的索引字段不存在");
+      } else {
+        rKey = item[indexKey];
+      }
+      // 计算返回的值
+      let rVal;
+      if (isUndefined(item[fieldKey])) {
+        rVal = defaultVal
+      } else {
+        rVal = item[fieldKey];
+      }
+      R[rKey] = rVal;
     }
-    // 计算返回的值
-    let rVal;
-    if (isUndefined(item[fieldKey])) {
-      rVal = defaultVal
-    } else {
-      rVal = item[fieldKey];
-    }
-    R[rKey] = rVal;
   }
   return R;
 }

@@ -17,6 +17,7 @@ import {
   isNumber,
   isArray,
   isObject,
+  isFunction
   uniqid
 } from "@qingbing/helper";
 
@@ -28,6 +29,7 @@ console.log('isBoolean', isBoolean(true));
 console.log('isNumber', isNumber('12.2'));
 console.log('isArray', isArray([]));
 console.log('isObject', isObject({}));
+console.log('isFunction', isFunction({}));
 
 console.log('uniqid', uniqid());
 ```

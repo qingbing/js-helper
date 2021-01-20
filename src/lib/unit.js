@@ -67,6 +67,15 @@ export function isObject(v) {
 }
 
 /**
+ * 判断一个变量是否是函数
+ * @param {mixed} v
+ * @return {boolean}
+ */
+export function isFunction(v) {
+  return typeof v === "function";
+}
+
+/**
  * 生成唯一的UUID
  */
 export function uniqid() {
