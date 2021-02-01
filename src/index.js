@@ -1,5 +1,5 @@
 // 通用函数
-import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, uniqid } from "./lib/unit";
+import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid } from "./lib/unit";
 // 数组相关函数
 import { inArray, explode, implode } from "./lib/array";
 // 集合相关函数
@@ -12,7 +12,7 @@ import { sprintf, replace } from "./lib/format";
  */
 export {
   // unit
-  isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, uniqid,
+  isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid,
   // array
   inArray, explode, implode,
   // collection

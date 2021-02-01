@@ -76,6 +76,26 @@ export function isFunction(v) {
 }
 
 /**
+ * 判断一个变量是否不为空
+ * @param {mixed} v
+ */
+export function isEmpty(v) {
+  if (isUndefined(v) || null === v) {
+    return true;
+  }
+  if (isString(v)) {
+    return '' === v.trim();
+  }
+  if (isArray(v)) {
+    return (0 === v.length);
+  }
+  if (isObject(v)) {
+    return (0 === Object.keys(v).length);
+  }
+  return false;
+}
+
+/**
  * 生成唯一的UUID
  */
 export function uniqid() {

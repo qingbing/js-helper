@@ -30,6 +30,11 @@ console.log('isNumber', isNumber('12.2'));
 console.log('isArray', isArray([]));
 console.log('isObject', isObject({}));
 console.log('isFunction', isFunction({}));
+console.log('isEmpty', isEmpty(undefined));
+console.log('isEmpty', isEmpty(null));
+console.log('isEmpty', isEmpty(''));
+console.log('isEmpty', isEmpty([]));
+console.log('isEmpty', isEmpty({}));
 
 console.log('uniqid', uniqid());
 ```
