@@ -1,6 +1,5 @@
 // 导入使用包
-import { isUndefined } from "..";
-import { isArray, isObject, isBoolean } from "./unit";
+import { isUndefined, isArray, isObject, isBoolean, isFunction } from "./unit";
 
 /**
  * 复制一个变量，主要为数组或对象
@@ -149,4 +148,22 @@ export function col_value(key, col, defaultVal) {
     throw new Error("col_value 没有对应的 key");
   }
   return defaultVal;
+}
+
+/**
+ * @param {mixed} vals Object|Array 需要循环处理的对象或数组
+ * @param {function} cb 回调处理函数
+ */
+export function each(vals, cb) {
+  if (!isFunction(cb)) {
+    throw new Error("each 函数必须传入回调处理函数");
+  }
+  for (const idx in vals) {
+    if (Object.hasOwnProperty.call(vals, idx)) {
+      const isContinue = cb(idx, vals[idx], vals);
+      if (false === isContinue) {
+        break;
+      }
+    }
+  }
 }

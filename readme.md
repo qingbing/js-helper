@@ -1,5 +1,10 @@
 # js 常规功能及函数包装
 
+## version 说明
+- 1.0.4
+  - isEmpty : 新增函数，判断一个变量是否为空
+  - each : 新增函数，数组或对象的遍历函数，可以通过回调中返回false来终止遍历
+
 ## 1. 在node中使用方法
 ```
 npm install @qingbing/helper
@@ -59,6 +64,7 @@ import {
   merge,
   col_cloumn,
   col_value,
+  each,
 } from "@qingbing/helper";
 // collection
 const arr1 = {
@@ -124,6 +130,24 @@ console.log(col_value(1, ["app", "ba", "xx"]));
 console.log(col_value(4, ["app", "ba", "xx"], "-"));
 console.log(col_value("c", { a: "app", b: "ba", c: "xx" }));
 console.log(col_value("d", { a: "app", b: "ba", c: "xx" }, "--"));
+
+// each 测试
+each([1, 2], function (idx, val, arr) {
+  console.log(idx, val, arr);
+});
+each(
+  {
+    name: "qing",
+    sex: "sex",
+  },
+  function (idx, val, arr) {
+    console.log(idx, val, arr);
+    if (idx === "name") {
+      return false; // 通过返回false实现遍历的继续
+    }
+  }
+);
+
 ```
 
 ### 2.5 format 测试
