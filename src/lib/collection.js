@@ -160,8 +160,7 @@ export function each(vals, cb) {
   }
   for (const idx in vals) {
     if (Object.hasOwnProperty.call(vals, idx)) {
-      const isContinue = cb(idx, vals[idx], vals);
-      if (false === isContinue) {
+      if (false === cb(idx, vals[idx], vals)) {
         break;
       }
     }
