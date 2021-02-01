@@ -10,10 +10,8 @@ export function each(vals, cb) {
     throw new Error("each 函数必须传入回调处理函数");
   }
   for (const idx in vals) {
-    if (Object.hasOwnProperty.call(vals, idx)) {
-      if (false === cb(idx, vals[idx], vals)) {
-        break;
-      }
+    if (Object.hasOwnProperty.call(vals, idx) && false === cb(idx, vals[idx], vals)) {
+      break;
     }
   }
 }
