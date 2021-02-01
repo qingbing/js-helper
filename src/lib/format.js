@@ -1,3 +1,7 @@
+// 导入包
+import { isEmpty, isObject } from "./unit";
+import { each } from "./collection";
+
 /**
  * 字符串占位替换
  * sprintf("%% %s 必须介于 %d 和 %d 之间, 性别在 %j 之中", "年龄", 18, 65, ["male", "female"])
@@ -53,32 +57,19 @@ export function sprintf() {
  * replace("{field} 必须介于 {min} 和 {max} 之间, 性别在 {sex} 之中", {field: "年龄",min: 18,max: 65,sex: ["male", "female"]})
  */
 export function replace(msg, kvs) {
-  if (!msg) {
+  if (isEmpty(msg)) {
     return "";
   }
-  if (typeof kvs !== "object") {
+  if (!isObject(kvs)) {
     return msg;
   }
-  for (const key in object) {
-    if (Object.hasOwnProperty.call(object, key)) {
-      const element = object[key];
-
+  each(kvs, (key, val) => {
+    const sKey = "{" + key + "}";
+    if (-1 === msg.indexOf(sKey)) {
+      return;
     }
-  }
-  for (var key in kvs) {
-    if (Object.hasOwnProperty.call(kvs, key)) {
-      let repS;
-      const sKey = "{" + key + "}";
-      if (-1 === msg.indexOf(sKey)) {
-        continue;
-      }
-      if (typeof kvs[key] === "object") {
-        repS = JSON.stringify(kvs[key]);
-      } else {
-        repS = kvs[key];
-      }
-      msg = msg.replace(new RegExp(sKey, "g"), repS);
-    }
-  }
+    const repS = isObject(val) ? JSON.stringify(val) : val;
+    msg = msg.replace(new RegExp(sKey, "g"), repS);
+  });
   return msg;
 }

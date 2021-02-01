@@ -2,6 +2,23 @@
 import { isUndefined, isArray, isObject, isBoolean, isFunction } from "./unit";
 
 /**
+ * @param {mixed} vals Object|Array 需要循环处理的对象或数组
+ * @param {function} cb 回调处理函数
+ */
+export function each(vals, cb) {
+  if (!isFunction(cb)) {
+    throw new Error("each 函数必须传入回调处理函数");
+  }
+  for (const idx in vals) {
+    if (Object.hasOwnProperty.call(vals, idx)) {
+      if (false === cb(idx, vals[idx], vals)) {
+        break;
+      }
+    }
+  }
+}
+
+/**
  * 复制一个变量，主要为数组或对象
  * @param {Object | Array} val 
  */
@@ -16,9 +33,9 @@ export function copy(val) {
   if (isObject(val)) {
     R = {};
   }
-  for (const i in val) {
-    R[i] = copy(val[i]);
-  }
+  each(val, (i, v) => {
+    R[i] = copy(v);
+  });
   return R;
 }
 
@@ -47,18 +64,18 @@ function _merge(a, b, recursion) {
   }
   // 是否递归
   recursion = true === recursion;
-  for (const i in b) {
+  each(b, (i) => {
     if (isArray(a[i]) && isArray(b[i])) {
       a[i] = a[i].concat(b[i]);
-      continue;
+      return;
     }
     if (a[i] && recursion) {
       // 递归合并
       a[i] = _merge(a[i], b[i], true);
-      continue;
+      return;
     }
     a[i] = b[i];
-  }
+  })
   return a;
 }
 
@@ -105,28 +122,19 @@ export function col_cloumn(items, fieldKey, indexKey, defaultVal) {
   }
   let R = {};
 
-  for (const key in items) {
-    if (Object.hasOwnProperty.call(items, key)) {
-      const item = items[key];
-      // 计算返回的 key
-      let rKey;
-      if (isUndefined(indexKey)) {
-        rKey = key;
-      } else if (isUndefined(item[indexKey])) {
-        throw new Error("col_cloumn 指定的索引字段不存在");
-      } else {
-        rKey = item[indexKey];
-      }
-      // 计算返回的值
-      let rVal;
-      if (isUndefined(item[fieldKey])) {
-        rVal = defaultVal
-      } else {
-        rVal = item[fieldKey];
-      }
-      R[rKey] = rVal;
+  each(items, (_, item) => {
+    // 计算返回的 key
+    let rKey;
+    if (isUndefined(indexKey)) {
+      rKey = key;
+    } else if (isUndefined(item[indexKey])) {
+      throw new Error("col_cloumn 指定的索引字段不存在");
+    } else {
+      rKey = item[indexKey];
     }
-  }
+    // 计算返回的值
+    R[rKey] = isUndefined(item[fieldKey]) ? defaultVal : item[fieldKey];
+  });
   return R;
 }
 
@@ -148,21 +156,4 @@ export function col_value(key, col, defaultVal) {
     throw new Error("col_value 没有对应的 key");
   }
   return defaultVal;
-}
-
-/**
- * @param {mixed} vals Object|Array 需要循环处理的对象或数组
- * @param {function} cb 回调处理函数
- */
-export function each(vals, cb) {
-  if (!isFunction(cb)) {
-    throw new Error("each 函数必须传入回调处理函数");
-  }
-  for (const idx in vals) {
-    if (Object.hasOwnProperty.call(vals, idx)) {
-      if (false === cb(idx, vals[idx], vals)) {
-        break;
-      }
-    }
-  }
 }
