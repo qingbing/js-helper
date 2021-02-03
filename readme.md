@@ -4,6 +4,8 @@
 - 1.0.4
   - isEmpty : 新增函数，判断一个变量是否为空
   - each : 新增函数，数组或对象的遍历函数，可以通过回调中返回false来终止遍历
+- 1.0.5
+  - each : 修改函数，将 each(arr, (idx, val, arr) => {}) 改造成 each(arr, (val, idx, arr) => {})
 
 ## 1. 在node中使用方法
 ```
@@ -132,16 +134,16 @@ console.log(col_value("c", { a: "app", b: "ba", c: "xx" }));
 console.log(col_value("d", { a: "app", b: "ba", c: "xx" }, "--"));
 
 // each 测试
-each([1, 2], function (idx, val, arr) {
-  console.log(idx, val, arr);
+each([1, 2], function (val, idx, arr) {
+  console.log(val, idx, arr);
 });
 each(
   {
     name: "qing",
     sex: "sex",
   },
-  function (idx, val, arr) {
-    console.log(idx, val, arr);
+  function (val, idx, arr) {
+    console.log(val, idx, arr);
     if (idx === "name") {
       return false; // 通过返回false实现遍历的继续
     }

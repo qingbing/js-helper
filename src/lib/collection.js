@@ -10,7 +10,7 @@ export function each(vals, cb) {
     throw new Error("each 函数必须传入回调处理函数");
   }
   for (const idx in vals) {
-    if (Object.hasOwnProperty.call(vals, idx) && false === cb(idx, vals[idx], vals)) {
+    if (Object.hasOwnProperty.call(vals, idx) && false === cb(vals[idx], idx, vals)) {
       break;
     }
   }
@@ -31,7 +31,7 @@ export function copy(val) {
   if (isObject(val)) {
     R = {};
   }
-  each(val, (i, v) => {
+  each(val, (v, i) => {
     R[i] = copy(v);
   });
   return R;
@@ -62,7 +62,7 @@ function _merge(a, b, recursion) {
   }
   // 是否递归
   recursion = true === recursion;
-  each(b, (i) => {
+  each(b, (_, i) => {
     if (isArray(a[i]) && isArray(b[i])) {
       a[i] = a[i].concat(b[i]);
       return;
@@ -120,7 +120,7 @@ export function col_cloumn(items, fieldKey, indexKey, defaultVal) {
   }
   let R = {};
 
-  each(items, (_, item) => {
+  each(items, (item) => {
     // 计算返回的 key
     let rKey;
     if (isUndefined(indexKey)) {

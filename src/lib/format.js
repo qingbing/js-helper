@@ -63,7 +63,7 @@ export function replace(msg, kvs) {
   if (!isObject(kvs)) {
     return msg;
   }
-  each(kvs, (key, val) => {
+  each(kvs, (val, key) => {
     const sKey = "{" + key + "}";
     if (-1 === msg.indexOf(sKey)) {
       return;
