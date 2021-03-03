@@ -6,6 +6,8 @@ import { inArray, explode, implode } from "./lib/array";
 import { copy, merge, col_cloumn, col_value, each } from "./lib/collection";
 // 格式话相关函数
 import { sprintf, replace } from "./lib/format";
+// 辅助类相关函数
+import { dump } from "./lib/assist";
 
 /**
  * 导出相应函数
@@ -18,5 +20,7 @@ export {
   // collection
   copy, merge, col_cloumn, col_value, each,
   // format
-  sprintf, replace
+  sprintf, replace,
+  // assist
+  dump
 };

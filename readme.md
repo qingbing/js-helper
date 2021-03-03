@@ -6,6 +6,8 @@
   - each : 新增函数，数组或对象的遍历函数，可以通过回调中返回false来终止遍历
 - 1.0.5
   - each : 修改函数，将 each(arr, (idx, val, arr) => {}) 改造成 each(arr, (val, idx, arr) => {})
+- 1.0.6
+  - dump.error : 新增函数，打印消息，在 开发环境中使用 throw Error 的方式，在 生产环境中使用 console.error 的方式
 
 ## 1. 在node中使用方法
 ```
@@ -162,4 +164,12 @@ console.log(replace("我是 {name}, 今年 {age} 岁，基础信息: {info}", {
   age : 12,
   info : { "age": 44, "high": 1.1222 }
 }));
+```
+
+
+### 2.6 assist 测试
+```js
+import { dump } from "@qingbing/helper";
+
+dump.error("不存在的字段");
 ```
