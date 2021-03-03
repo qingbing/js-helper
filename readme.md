@@ -8,6 +8,9 @@
   - each : 修改函数，将 each(arr, (idx, val, arr) => {}) 改造成 each(arr, (val, idx, arr) => {})
 - 1.0.6
   - dump.error : 新增函数，打印消息，在 开发环境中使用 throw Error 的方式，在 生产环境中使用 console.error 的方式
+- 1.0.7
+  - dump.error : 修改函数的前置提示
+
 
 ## 1. 在node中使用方法
 ```

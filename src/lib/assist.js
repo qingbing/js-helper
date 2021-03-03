@@ -10,7 +10,7 @@ export const dump = {
    */
   error(msg) {
     if (isDev()) {
-      throw new Error(`Error : ${msg}`);
+      throw new Error(msg);
     } else {
       console.error(`Error : ${msg}`);
     }
