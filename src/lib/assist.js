@@ -14,5 +14,10 @@ export const dump = {
     } else {
       console.error(`Error : ${msg}`);
     }
+  },
+  log() {
+    if (isDev()) {
+      console.log(...arguments);
+    }
   }
 };
