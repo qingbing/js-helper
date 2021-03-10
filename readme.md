@@ -12,6 +12,8 @@
   - dump.error : 修改函数的前置提示
 - 1.0.8
   - dump.log : 新增函数，打印消息，在开发环境中打印控制台，其它环境忽略
+- 1.0.9
+  - asyncAll : 新增函数，多个 Promise 异步请求
 
 
 ## 1. 在node中使用方法
@@ -178,4 +180,38 @@ import { dump } from "@qingbing/helper";
 
 dump.error("不存在的字段");
 dump.log("username"，"sex"，"age");
+```
+
+
+### 2.7 promise 测试
+- asyncAll 用于多个remote接口异步请求
+  - promises : Promise 对象列表，可以为 Object 或 Array
+  - callback : 回调处理，如果为 function，表示异步，否则同步有 return 结果
+  - dataCallback : 异步请求的结果处理函数，如果为 null 表示数据不做处理，undefined 表示使用内置默认的处理函数（返回结果集中的 .data）
+  
+```js
+import { asyncAll } from "@qingbing/helper";
+
+// 结果集异步
+asyncAll(
+  {
+    sexLabels: getLabels({ type: "sex" }),
+    enableLabels: getLabels({ type: "enable" }),
+    delLabels: getLabels({ type: "delete" }),
+  },
+  (data) => {
+    console.log(data);
+  }
+);
+
+// 结果集同步
+const data = await asyncAll({
+  sexLabels: getLabels({ type: "sex" }),
+  enableLabels: getLabels({ type: "enable" }),
+  delLabels: getLabels({ type: "delete" }),
+});
+console.log(data);
+
+
+
 ```

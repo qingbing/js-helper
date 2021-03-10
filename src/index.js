@@ -8,6 +8,8 @@ import { copy, merge, col_cloumn, col_value, each } from "./lib/collection";
 import { sprintf, replace } from "./lib/format";
 // 辅助类相关函数
 import { dump } from "./lib/assist";
+// 辅助类相关函数
+import { asyncAll } from "./lib/promise";
 
 /**
  * 导出相应函数
@@ -22,5 +24,7 @@ export {
   // format
   sprintf, replace,
   // assist
-  dump
+  dump,
+  // promise
+  asyncAll
 };
