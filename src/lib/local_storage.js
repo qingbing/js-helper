@@ -7,7 +7,7 @@ export default {
    * @param {string} key 存储 key
    * @returns {string | null}
    */
-  getItem(key) {
+  get(key) {
     return localStorage.getItem(key);
   },
   /**
@@ -15,14 +15,14 @@ export default {
    * @param {string} key 存储 key
    * @param {string} value 存储 value
    */
-  setItem(key, value) {
+  set(key, value) {
     localStorage.setItem(key, value);
   },
   /**
    * 移除存储信息
    * @param {string} key 存储 key
    */
-  removeItem(key) {
+  remove(key) {
     localStorage.removeItem(key);
   },
   /**

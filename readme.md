@@ -16,6 +16,8 @@
   - asyncAll : 新增函数，多个 Promise 异步请求
 - 1.0.10
   - 新增 sessionStorage、localStoreage 的封装
+- 1.0.11
+  - 新增 sessionStorage、localStoreage 修改
 
 
 ## 1. 在node中使用方法
