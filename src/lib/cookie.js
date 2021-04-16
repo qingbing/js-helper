@@ -1,6 +1,7 @@
 // 导入包
 import Cookie from "js-cookie";
 import { isUndefined, isNumber, isObject } from "./unit";
+import { dump } from "./assist";
 
 // 导出
 export default {
@@ -44,6 +45,6 @@ export default {
    * 清空存储信息
    */
   clear() {
-    console.log("cookie不支持全部清除");
+    dump.error("cookie不支持全部清除");
   },
 };
