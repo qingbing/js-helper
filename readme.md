@@ -14,6 +14,8 @@
   - dump.log : 新增函数，打印消息，在开发环境中打印控制台，其它环境忽略
 - 1.0.9
   - asyncAll : 新增函数，多个 Promise 异步请求
+- 1.0.10
+  - 新增 sessionStorage、localStoreage 的封装
 
 
 ## 1. 在node中使用方法
@@ -212,6 +214,32 @@ const data = await asyncAll({
 });
 console.log(data);
 
+```
 
+### 2.8 session 测试
+```js
+import { session } from "@qingbing/helper";
 
+// 设置 sessionStorage
+session.set('id', 'name');
+// 获取 sessionStorage
+session.get('id');
+// 移除 sessionStorage
+session.remove('id');
+// 清空 sessionStorage
+session.clear();
+```
+
+### 2.9 localStorage 测试
+```js
+import { local } from "@qingbing/helper";
+
+// 设置 localStorage
+local.set('id', 'name');
+// 获取 localStorage
+local.get('id');
+// 移除 localStorage
+local.remove('id');
+// 清空 localStorage
+local.clear();
 ```

@@ -4,12 +4,16 @@ import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, i
 import { inArray, explode, implode } from "./lib/array";
 // 集合相关函数
 import { copy, merge, col_cloumn, col_value, each } from "./lib/collection";
-// 格式话相关函数
+// 格式化相关函数
 import { sprintf, replace } from "./lib/format";
 // 辅助类相关函数
 import { dump } from "./lib/assist";
-// 辅助类相关函数
+// promise 相关函数
 import { asyncAll } from "./lib/promise";
+// session storage
+import session from "./lib/session_storage";
+// local storage
+import local from "./lib/local_storage";
 
 /**
  * 导出相应函数
@@ -26,5 +30,9 @@ export {
   // assist
   dump,
   // promise
-  asyncAll
+  asyncAll,
+  // session_storage
+  session,
+  // local_storage
+  local
 };
