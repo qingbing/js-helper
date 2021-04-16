@@ -17,7 +17,9 @@
 - 1.0.10
   - 新增 sessionStorage、localStoreage 的封装
 - 1.0.11
-  - 新增 sessionStorage、localStoreage 修改
+  - sessionStorage、localStoreage 修改
+- 1.0.12
+  - 新增 cookie 的封装
 
 
 ## 1. 在node中使用方法
@@ -223,11 +225,11 @@ console.log(data);
 import { session } from "@qingbing/helper";
 
 // 设置 sessionStorage
-session.set('id', 'name');
+session.set("id", "name");
 // 获取 sessionStorage
-session.get('id');
+session.get("id");
 // 移除 sessionStorage
-session.remove('id');
+session.remove("id");
 // 清空 sessionStorage
 session.clear();
 ```
@@ -237,11 +239,27 @@ session.clear();
 import { local } from "@qingbing/helper";
 
 // 设置 localStorage
-local.set('id', 'name');
+local.set("id", "name");
 // 获取 localStorage
-local.get('id');
+local.get("id");
 // 移除 localStorage
-local.remove('id');
+local.remove("id");
 // 清空 localStorage
 local.clear();
+```
+
+### 2.10 cookie 测试
+```js
+import { cookie } from "@qingbing/helper";
+
+// 设置 cookie
+cookie.set("id", "name");
+cookie.set("id", "name", 60 * 15); // 15分钟有效
+cookie.set("id", "name", new Date().setTime(new Date().getTime() + 60 * 15 * 1000)); // 15分钟有效
+// 获取 cookie
+cookie.get("id");
+// 移除 cookie
+cookie.remove("id");
+// 清空 cookie，目前不支持，会控制台提示
+// cookie.clear();
 ```

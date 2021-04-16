@@ -10,6 +10,8 @@ import { sprintf, replace } from "./lib/format";
 import { dump } from "./lib/assist";
 // promise 相关函数
 import { asyncAll } from "./lib/promise";
+// cookie 管理
+import cookie from "./lib/cookie";
 // session storage
 import session from "./lib/session_storage";
 // local storage
@@ -31,6 +33,8 @@ export {
   dump,
   // promise
   asyncAll,
+  // cookie
+  cookie,
   // session_storage
   session,
   // local_storage
