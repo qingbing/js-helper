@@ -1,5 +1,5 @@
 // 导入需要的包
-import { isArray, isString, isUndefined } from "./unit";
+import { isArray, isString, isUndefined } from "./util";
 
 /**
  * 查询 val 是否在数组中

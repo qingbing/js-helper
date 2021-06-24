@@ -23,6 +23,8 @@
 - 1.0.13
   - 修改 cookie 中错误打印，采用 dump.error 的方式
   - 增加 toJson 函数，将json字符串转换成json对象
+- 1.0.14
+  - 修复13中修改文件名导致的bug
 
 
 ## 1. 在node中使用方法
@@ -62,6 +64,7 @@ console.log('isEmpty', isEmpty([]));
 console.log('isEmpty', isEmpty({}));
 
 console.log('uniqid', uniqid());
+console.log('toJson', toJson("{\"name\":\"qingbing\"}"));
 ```
 ### 2.2 array 测试
 ```js

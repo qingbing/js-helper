@@ -1,5 +1,5 @@
 // 导入使用包
-import { isUndefined, isArray, isObject, isBoolean, isFunction } from "./unit";
+import { isUndefined, isArray, isObject, isBoolean, isFunction } from "./util";
 
 /**
  * @param {mixed} vals Object|Array 需要循环处理的对象或数组

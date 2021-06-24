@@ -21,7 +21,7 @@ import local from "./lib/local_storage";
  * 导出相应函数
  */
 export {
-  // unit
+  // util
   isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid, toJson,
   // array
   inArray, explode, implode,

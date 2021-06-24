@@ -1,6 +1,6 @@
 // 导入函数
 import { each } from "./collection";
-import { isArray, isFunction } from "./unit";
+import { isArray, isFunction } from "./util";
 import { dump } from "./assist";
 
 /**

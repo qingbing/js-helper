@@ -1,6 +1,6 @@
 // 导入包
 import Cookie from "js-cookie";
-import { isUndefined, isNumber, isObject } from "./unit";
+import { isUndefined, isNumber, isObject } from "./util";
 import { dump } from "./assist";
 
 // 导出
