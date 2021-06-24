@@ -20,8 +20,9 @@
   - sessionStorage、localStoreage 修改
 - 1.0.12
   - 新增 cookie 的封装
-- 1.0.x
+- 1.0.13
   - 修改 cookie 中错误打印，采用 dump.error 的方式
+  - 增加 toJson 函数，将json字符串转换成json对象
 
 
 ## 1. 在node中使用方法

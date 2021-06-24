@@ -1,5 +1,5 @@
 // 通用函数
-import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid } from "./lib/unit";
+import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid, toJson } from "./lib/util";
 // 数组相关函数
 import { inArray, explode, implode } from "./lib/array";
 // 集合相关函数
@@ -22,7 +22,7 @@ import local from "./lib/local_storage";
  */
 export {
   // unit
-  isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid,
+  isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid, toJson,
   // array
   inArray, explode, implode,
   // collection

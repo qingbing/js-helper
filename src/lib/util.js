@@ -107,3 +107,17 @@ export function uniqid() {
   });
   return id;
 }
+
+/**
+ * 将变量（json字符串）转换成json对象
+ */
+export function toJson(val) {
+  if (isObject(val) || isArray(val)) {
+    return val;
+  }
+  try {
+    return JSON.parse(val);
+  } catch (error) {
+    return null;
+  }
+}
