@@ -16,6 +16,8 @@ import cookie from "./lib/cookie";
 import session from "./lib/session_storage";
 // local storage
 import local from "./lib/local_storage";
+// cache 本地(浏览器)缓存
+import cache from "./lib/cache";
 
 /**
  * 导出相应函数
@@ -38,5 +40,7 @@ export {
   // session_storage
   session,
   // local_storage
-  local
+  local,
+  // cache
+  cache
 };

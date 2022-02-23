@@ -25,6 +25,8 @@
   - 增加 toJson 函数，将json字符串转换成json对象
 - 1.0.14
   - 修复13中修改文件名导致的bug
+- 1.0.15
+  - 增加 cache(本地|浏览器缓存)
 
 
 ## 1. 在node中使用方法
@@ -269,3 +271,41 @@ cookie.remove("id");
 // 清空 cookie，目前不支持，会控制台提示
 // cookie.clear();
 ```
+
+### 2.11 cache 测试
+```js
+// 封装:cache.js
+// 导入包和方法
+import { local, cache } from "@qingbing/helper";
+/**
+ * 设置缓存具体实现位置，可为session或local，或者自行封装，自行封装需要实现
+ *    1. set(key, value)
+ *    2. get(key)
+ *    3. remove(key)
+ *    4. clear()
+ */
+cache.setStorage(local);
+// 导出缓存
+export default cache;
+
+
+// 使用封装
+// 导入包和方法
+import cache from "./cache";
+// 设置
+async function getData(){
+  const res = await cache.get(
+    `local.cache.xxxxx`,
+    () => {
+      return {
+        key1: axios(...),
+        key2: axios(...),
+        key3: axios(...),
+      };
+    },
+    7200
+  );
+  console.log(res);
+}
+```
+
