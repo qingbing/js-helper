@@ -10,6 +10,8 @@ import { sprintf, replace } from "./lib/format";
 import { dump } from "./lib/assist";
 // promise 相关函数
 import { asyncAll } from "./lib/promise";
+// idempotent 幂等控制
+import idempotent from "./lib/idempotent";
 // cookie 管理
 import cookie from "./lib/cookie";
 // session storage
@@ -35,6 +37,8 @@ export {
   dump,
   // promise
   asyncAll,
+  // idempotent
+  idempotent,
   // cookie
   cookie,
   // session_storage

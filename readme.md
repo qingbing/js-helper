@@ -27,6 +27,8 @@
   - 修复13中修改文件名导致的bug
 - 1.0.15
   - 增加 cache(本地|浏览器缓存)
+- 1.0.16
+  - 增加 idempotent 幂等控制
 
 
 ## 1. 在node中使用方法
@@ -309,3 +311,19 @@ async function getData(){
 }
 ```
 
+### 2.12 idempotent 幂等控制
+```js
+import { idempotent } from "@qingbing/helper";
+// 使用
+idempotent
+  .setRunningMsg('使用中')
+  .setRunningMsg('使用中')
+  .run("uniqidKey", (cb) => {
+      // 逻辑方法写这里
+      // cb 为关闭幂等回调，如果不回调，将永远退不出幂等
+      // ... real logic coding
+      cb();
+    },
+    obj // 逻辑方法中， this 代表的this指针，非必填字段
+  );
+```
