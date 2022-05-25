@@ -32,6 +32,8 @@
 - 1.0.17
   - 删除原有的 implode 方法，使用原生的 Array.join
   - 增加了 Array.remove(val) 方法
+- 1.0.18
+  - Array.isArray(val) 修改为 Array.isElement(val) 方法
 
 
 ## 1. 在node中使用方法
@@ -77,8 +79,8 @@ console.log('toJson', toJson("{\"name\":\"qingbing\"}"));
 ```js
 import { explode } from "@qingbing/helper";
 // array
-console.log([1, 2, 4, 5].inArray(4));
-console.log([1, 2, 4, 5].inArray(0));
+console.log([1, 2, 4, 5].isElement(4));
+console.log([1, 2, 4, 5].isElement(0));
 console.log([1, 2, 4, 5].remove(4));
 console.log([1, 2, 4, 5].remove(0));
 console.log('explode', explode("i am qq", " "));

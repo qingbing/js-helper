@@ -37,6 +37,6 @@ Array.prototype.remove = function (val) {
  * @param {mixed} val
  * @returns 
  */
-Array.prototype.inArray = function (val) {
-  return -1 === this.indexOf(val);
+Array.prototype.isElement = function (val) {
+  return -1 !== this.indexOf(val);
 };
