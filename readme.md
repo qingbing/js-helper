@@ -29,6 +29,9 @@
   - 增加 cache(本地|浏览器缓存)
 - 1.0.16
   - 增加 idempotent 幂等控制
+- 1.0.17
+  - 删除原有的 implode 方法，使用原生的 Array.join
+  - 增加了 Array.remove(val) 方法
 
 
 ## 1. 在node中使用方法
@@ -72,16 +75,13 @@ console.log('toJson', toJson("{\"name\":\"qingbing\"}"));
 ```
 ### 2.2 array 测试
 ```js
-import {
-  // array 
-  inArray,
-  explode,
-  implode,
-} from "@qingbing/helper";
+import { explode } from "@qingbing/helper";
 // array
-console.log('inArray', inArray(4, [1, 2, 4, 5]));
+console.log([1, 2, 4, 5].inArray(4));
+console.log([1, 2, 4, 5].inArray(0));
+console.log([1, 2, 4, 5].remove(4));
+console.log([1, 2, 4, 5].remove(0));
 console.log('explode', explode("i am qq", " "));
-console.log('implode', implode(["i", "am qq"], "___"));
 
 ```
 ### 2.3 collection 测试

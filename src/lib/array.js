@@ -1,14 +1,5 @@
 // 导入需要的包
-import { isArray, isString, isUndefined } from "./util";
-
-/**
- * 查询 val 是否在数组中
- * @param {Mixed} v 搜索的值
- * @param {Array} arr 搜索的数组
- */
-export function inArray(v, arr) {
-  return -1 !== arr.indexOf(v);
-}
+import { isArray, isString } from "./util";
 
 /**
  * 将变量分割成数组
@@ -25,18 +16,27 @@ export function explode(str, delimiter) {
     return [str];
   }
 }
+
 /**
- * 将数组连接成字符串
+ * 数组移除一个元素
  * 
- * @param {Array} arr 需要连接的数组
- * @param {String} glue 连接字符
+ * @param {mixed} val
+ * @returns 
  */
-export function implode(arr, glue) {
-  if (!isArray(arr)) {
-    throw new Error("implode 只能合并数组");
+Array.prototype.remove = function (val) {
+  const i = this.indexOf(val);
+  if (-1 === i) {
+    return this.slice();
   }
-  if (isUndefined(glue)) {
-    glue = " ";
-  }
-  return arr.join(glue);
-}
+  return this.slice(0, i).concat(this.slice(i + 1));
+};
+
+/**
+ * 元素是否在数组中
+ * 
+ * @param {mixed} val
+ * @returns 
+ */
+Array.prototype.inArray = function (val) {
+  return -1 === this.indexOf(val);
+};

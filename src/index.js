@@ -1,7 +1,7 @@
 // 通用函数
 import { isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid, toJson } from "./lib/util";
 // 数组相关函数
-import { inArray, explode, implode } from "./lib/array";
+import { explode } from "./lib/array";
 // 集合相关函数
 import { copy, merge, col_cloumn, col_value, each } from "./lib/collection";
 // 格式化相关函数
@@ -28,7 +28,7 @@ export {
   // util
   isDev, isUndefined, isString, isBoolean, isNumber, isArray, isObject, isFunction, isEmpty, uniqid, toJson,
   // array
-  inArray, explode, implode,
+  explode,
   // collection
   copy, merge, col_cloumn, col_value, each,
   // format
