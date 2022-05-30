@@ -150,8 +150,5 @@ export function col_value(key, col, defaultVal) {
   if (col[key]) {
     return col[key];
   }
-  if (isUndefined(defaultVal)) {
-    throw new Error("col_value 没有对应的 key");
-  }
   return defaultVal;
 }
