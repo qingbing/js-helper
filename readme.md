@@ -37,6 +37,8 @@
 - 1.0.19
   - 优化 col_value 方法
   - 添加 Array.toObject 方法
+- 1.0.20
+  - fix bug for col_value 
 
 
 ## 1. 在node中使用方法
