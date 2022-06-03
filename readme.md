@@ -34,8 +34,9 @@
   - 增加了 Array.remove(val) 方法
 - 1.0.18
   - Array.isArray(val) 修改为 Array.isElement(val) 方法
-- 1.0.?
+- 1.0.19
   - 优化 col_value 方法
+  - 添加 Array.toObject 方法
 
 
 ## 1. 在node中使用方法
@@ -179,6 +180,8 @@ each(
   }
 );
 
+// 数组转换成object
+const obj = ["a", "b"].toObject();
 ```
 
 ### 2.5 format 测试

@@ -40,3 +40,19 @@ Array.prototype.remove = function (val) {
 Array.prototype.isElement = function (val) {
   return -1 !== this.indexOf(val);
 };
+
+/**
+ * 元素是否在数组中
+ * 
+ * @param {mixed} val
+ * @returns 
+ */
+Array.prototype.toObject = function () {
+  const o = {};
+  for (const k in this) {
+    if (Object.hasOwnProperty.call(this, k)) {
+      o[k] = this[k];
+    }
+  }
+  return o;
+};

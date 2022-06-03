@@ -147,8 +147,5 @@ export function col_value(key, col, defaultVal) {
   if (!isArray(col) && !isObject(col)) {
     throw new Error("col_value 必须指定查找集合为数组或对象");
   }
-  if (col[key]) {
-    return col[key];
-  }
-  return defaultVal;
+  return col[key] ?? defaultVal;
 }
